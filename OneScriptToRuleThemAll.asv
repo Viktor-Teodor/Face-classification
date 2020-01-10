@@ -1,0 +1,17 @@
+test=[[1,2,3];[2,3,4];[3,4,5]];
+eigFaces=eigenfaces(test,100);
+meanFace=mean(test);
+
+[coeff,ceva,ceva2] = pca(test);
+projectedTest=normalize(test)*eigFaces;
+
+projectedTarget= ([3,4,5] - meanFace)*eigFaces;
+
+
+labels=[1,2,3];
+
+aux=KNN(1,test,labels,[3,4,5]);
+[quality,approxEig]=lanczos(cov(normalize(test)),2)
+
+
+[trainingData,labels]=getData('D:\Pentru adina\targetFaces);
